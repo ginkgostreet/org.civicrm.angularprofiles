@@ -3,6 +3,8 @@
 
   angular.module('crmProfileUtils').factory('crmProfiles', function($q, crmApi){
 
+    //This was done as a recursive function because the scripts
+    //Must execute in order.
     function loadNextScript(scripts, callback, fail) {
       var script = scripts.shift();
       CRM.$.getScript(CRM.config.resourceBase + script.url)
@@ -60,6 +62,10 @@
       loadStyleFile(CRM.config.resourceBase + 'css/crm.designer.css');
 
 
+      //This is a recursive function that takes a list of scripts
+      //and a pair of callbacks. It will load the scripts in order
+      //from the list, and then call the callback. Errors will result in
+      //Calling the error callback.
       loadNextScript(scripts, function () {
         window.jQuery = CRM.origJQuery;
         delete CRM.origJQuery;
@@ -125,6 +131,10 @@
           CRM.$("body").append("<div id='backbone_resources'></div>");
         }
 
+        //The setting must be loaded before the libraries
+        //Because the libraries depend on the settings.
+        //loadSettings will once it is finished do it's own
+        // check and spawn the loadBakcbone task when it is complete.
         if(!verifySettings()) {
           promises.push(loadSettings());
         } else if(!verifyBackbone()) {
