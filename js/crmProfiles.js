@@ -158,6 +158,29 @@
         return deferred.promise;
       }
     };
-  });
+  })
 
+    // Render a crmProfileSelector widget
+    // Minimum usage: <input crm-profile-selector='{}' />
+    // usage: <input crm-profile-selector='{dataGroupType: "Contact,Individual,Volunteer", dataEntities: [{"entity_name":"contact_1","entity_type":"IndividualModel"}], dataDefault: "", dataUsedfor: null}' />
+    .directive('crmProfileSelector', function ($parse, $timeout) {
+      return {
+        require: '?ngModel',
+        scope: {
+          crmProfileSelector: '='
+        },
+        link: function (scope, element, attrs, ngModel) {
+          // In cases where UI initiates update, there may be an extra
+          // call to refreshUI, but it doesn't create a cycle.
+
+          ngModel.$render = function () {
+            if (!element.val() && !element.hasClass("rendered")) {
+              console.log("Let's do this!");
+              element.val(ngModel.$modelValue);
+              element.crmProfileSelector(scope.crmProfileSelector || {});
+            }
+          };
+        }
+      };
+    });
 })(angular, CRM.$, CRM._);
