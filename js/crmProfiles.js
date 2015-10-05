@@ -83,7 +83,7 @@
       //Fetch the settings from the api
       crmApi('profile', 'getangularsettings').then(function(result) {
         if(result.hasOwnProperty('values')) {
-          CRM.$.extend(CRM, result.values);
+          CRM.$.extend(true, CRM, result.values);
         }
         if (!verifyBackbone()) {
           loadBackbone().then(function() {
