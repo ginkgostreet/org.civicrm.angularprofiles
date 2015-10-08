@@ -110,7 +110,7 @@
       return deferred.promise;
     }
     function verifyBackbone() {
-      return !!window.Backbone;
+      return !!CRM.Backbone;
     }
     function verifyTemplate() {
       return (angular.element("#designer_template").length > 0);
