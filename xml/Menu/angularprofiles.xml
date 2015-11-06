@@ -4,6 +4,6 @@
     <path>civicrm/angularprofiles/template</path>
     <page_callback>CRM_AngularProfiles_Page_Template</page_callback>
     <title>Template</title>
-    <access_arguments>access CiviCRM</access_arguments>
+    <access_callback>1</access_callback>
   </item>
 </menu>
