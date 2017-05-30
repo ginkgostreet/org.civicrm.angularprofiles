@@ -8,8 +8,10 @@ This module does no permission checking and if the user does not have sufficient
 
 This module was built in conjunction with [CiviVolunteer](https://github.com/civicrm/org.civicrm.volunteer) and a working example can be seen in that project in the project edit view.
 
-###Examples:
-####Verifying that backbone is loaded:
+## Examples:
+
+### Verifying that backbone is loaded:
+
 ```javascript
 angular.module('myModule').config(function($routeProvider) {
   resolve: {
@@ -26,7 +28,8 @@ angular.module('myModule').controller('myController', function($scope,profile_st
 
 ```
 
-####Use the crm-profile-selector directive to include the widget:
+### Using the crm-profile-selector directive to include the widget:
+
 ```html
 <input crm-profile-selector="{}" ng-model="profile.uf_group_id" />
 ```
