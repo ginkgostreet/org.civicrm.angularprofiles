@@ -22,7 +22,7 @@
     }
 
     function loadStyleFile(url) {
-      CRM.$("#backbone_resources").append("<link href='"+url+"' />");
+      CRM.$("#backbone_resources").append('<link type="text/css" rel="stylesheet" href="'+url+'" />');
     }
 
     function loadBackbone() {
