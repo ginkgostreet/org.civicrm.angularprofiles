@@ -37,7 +37,7 @@
         {url: 'packages/backbone-forms/distribution/backbone-forms.js', weight: 130},
         {url: 'packages/backbone-forms/distribution/adapters/backbone.bootstrap-modal.min.js', weight: 140},
         {url: 'packages/backbone-forms/distribution/editors/list.min.js', weight: 140},
-        {url: CRM.vars['org.civicrm.angularprofiles'].backboneInitUrl, weight: 145},
+        {url: CRM.crmProfileUtils.backboneInitUrl, weight: 145},
         {url: 'js/crm.backbone.js', weight: 150},
         {url: 'js/model/crm.schema-mapped.js', weight: 200},
         {url: 'js/model/crm.uf.js', weight: 200},
